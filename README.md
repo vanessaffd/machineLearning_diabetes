@@ -4,7 +4,8 @@
 O presente projeto teve como objetivo treinar cinco modelos preditivos de *machine learning*, de forma supervisionada, para prever a ocorrência de diabetes entre o público analisado. Avaliou-se a capacidade dos modelos em predizer a incidência da doença com base em fatores de risco conhecidos.
 
 ## Base de Dados
-- **Fonte**: Dataset hospedado na plataforma Kaggle.  
+- **Fonte**: Dataset hospedado na plataforma Kaggle.
+  - **Link**: https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset
 - **Tamanho Original**: 100.000 registros com 9 atributos, incluindo o status de incidência de diabetes.  
 - **Ferramentas Utilizadas**:  
   - **Linguagem**: Python.  
