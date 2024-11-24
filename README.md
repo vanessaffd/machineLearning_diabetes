@@ -1,13 +1,61 @@
-# Machine Learning - Diabetes
-Script em python que avalia cinco modelos de análise preditiva sobre fatores de risco de Diabetes
+# Predição da Ocorrência de Diabetes com Machine Learning
 
+## Objetivo
+O presente projeto teve como objetivo treinar cinco modelos preditivos de *machine learning*, de forma supervisionada, para prever a ocorrência de diabetes entre o público analisado. Avaliou-se a capacidade dos modelos em predizer a incidência da doença com base em fatores de risco conhecidos.
 
-No presente projeto cinco modelos preditivos de machine Learn foram treinados, de forma supervisionada, para prever a ocorrência de Diabetes entre o público analisado. O objetivo foi avaliar a capacidade de predizer a incidência da doença com base em fatores de risco conhecidos. Utilizamos um dataset hospedado na plataforma Kaggle com um tamanho original de 100.000 registros e 9 atributos, incluindo o status de incidência de diabetes. Utilizamos o Jupyter Notebook e a linguagem Python no projeto, em virtude da ampla disponibilidade de recursos e bibliotecas voltadas para a análise de dados e machine learn.
+## Base de Dados
+- **Fonte**: Dataset hospedado na plataforma Kaggle.  
+- **Tamanho Original**: 100.000 registros com 9 atributos, incluindo o status de incidência de diabetes.  
+- **Ferramentas Utilizadas**:  
+  - **Linguagem**: Python.  
+  - **Ambiente**: Jupyter Notebook.  
+  - **Bibliotecas**: Pandas, scikit-learn, entre outras.
 
-Partindo de um dataframe com dados médicos e demográficos, acompanhados do seu status para a incidência de diabetes, primeiramente removemos 35.816 registros cujo dataset  não apresentava a informação para o histórico de tabagismo da amostra. O próximo passo foi utilizar o método get_dummies, da biblioteca Pandas, para transformar as variáveis categóricas em variáveis numéricas binárias, tendo em vista que os algoritmos de aprendizado de máquina possuem um desempenho melhor quando analisam esse tipo de dado. A metodologia foi aplicada nas colunas ‘gender’ e  'smoking_history'.
+## Etapas do Projeto
 
-O próximo passo foi aplicarmos a metodologia  MinMaxScaler, da biblioteca scikit-learn, para normalizamos os dados das colunas 'bmi', 'HbA1c_level' e 'blood_glucose_level'. Na sequência dividimos o dataset tratado em variáveis independentes (features), aquelas variáveis que os modelos usarão para fazer as predições, e a variável dependente (ou target), a variável que queremos prever. Cada um desses datasets resultantes, usualmente chamados respectivamente de X (features) e y (target), foram então divididos em X-Treino, X_teste, y_treino e y_teste. Dessa forma temos uma amostra para treinar os modelos e outra para avaliar a eficiência dos modelos já treinados.
+### 1. **Pré-processamento dos Dados**
+1. **Remoção de Dados Incompletos**: Foram removidos 35.816 registros que não apresentavam informações sobre o histórico de tabagismo.  
+2. **Transformação de Variáveis Categóricas**:  
+   - Utilizou-se o método `get_dummies` da biblioteca Pandas para transformar as variáveis categóricas em variáveis numéricas binárias.  
+   - Colunas transformadas: `gender` e `smoking_history`.  
+3. **Normalização dos Dados**:  
+   - Aplicou-se o método `MinMaxScaler` (scikit-learn) para normalizar as colunas:  
+     - `bmi`  
+     - `HbA1c_level`  
+     - `blood_glucose_level`.
 
-Foram avaliados um total de cinco modelos preditivos: Regressão Logística, Árvore de Decisão, SVC (Support Vector Classifier), Random Forest e o modelo K-Nearest Neighbors. Embora alguns modelos também possam ser usados para regressão, a classificação é a aplicação mais típica para todos os modelos utilizados. Utilizando a linguagem Python e suas bibliotecas de análise de dados,os modelos foram então avaliados quanto ao valor de F1-Score. Essa métrica de desempenho é usada em aprendizado de máquina e estatística para avaliar a eficácia de modelos de classificação. Ela é especialmente útil quando há desbalanceamento de classes, ou seja, quando uma classe é muito mais comum do que outra no conjunto de dados, como é o caso de incidência de doenças em uma amostra. Identificamos que o modelo Randon Forest obteve o melhor desempenho, apresentando um valor de F1-Score igual a 0,800, seguido pelo modelo de Árvore de Decisão, com 0,738 de F1-Score.
+### 2. **Divisão dos Dados**
+- O dataset foi dividido em:  
+  - Variáveis independentes (*features*): `X`.  
+  - Variável dependente (*target*): `y`.  
+- Criaram-se amostras de treino e teste:  
+  - `X_treino`, `X_teste`, `y_treino`, `y_teste`.  
 
-O resultado demonstra boa capacidade preditiva com base nos dados de fatores de risco, tais como obesidade, histórico de tabagismo e hipertensão. Nesse sentido, o modelo poderá ter diversas aplicações práticas tais como apoio à tomada de decisão em saúde pública, triagem médica, medicina preventiva e pesquisas epidemiológicas que levem em consideração esses atributos demográficos, especialmente em cenários de desbalanceamento de classes, como a baixa incidência de doenças em mesmo grandes populações.
+### 3. **Modelagem**
+Foram avaliados cinco modelos preditivos:  
+- **Regressão Logística**  
+- **Árvore de Decisão**  
+- **SVC (Support Vector Classifier)**  
+- **Random Forest**  
+- **K-Nearest Neighbors (KNN)**  
+
+### 4. **Métrica de Avaliação**
+- Utilizou-se o **F1-Score** para medir o desempenho dos modelos.  
+  - Essa métrica é especialmente útil em cenários com desbalanceamento de classes, como a baixa incidência de doenças.
+
+## Resultados
+Os valores de F1-Score obtidos foram:  
+1. **Random Forest**: 0,800  
+2. **Árvore de Decisão**: 0,738  
+3. Demais modelos apresentaram desempenhos inferiores.
+
+### Observação
+O **Random Forest** destacou-se como o modelo mais eficaz para predizer a ocorrência de diabetes com base nos fatores de risco.
+
+## Conclusões
+- O modelo **Random Forest** demonstrou boa capacidade preditiva ao utilizar fatores como obesidade, histórico de tabagismo e hipertensão.  
+- Possíveis aplicações práticas:  
+  - Apoio à tomada de decisão em saúde pública.  
+  - Triagem médica.  
+  - Medicina preventiva.  
+  - Pesquisas epidemiológicas.  
